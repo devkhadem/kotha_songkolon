@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Top Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+   </head>
+   <body>
+    
+
+<h2>Two Equal Columns</h2>
+
+<div class="row" style="display: flex; flex-wrap: wrap;">
+  <!-- First column, divided into two columns -->
+  <div class="column" style="flex: 50%; background-color: #aaa; display: flex; border: 1px solid black;">
+    <div class="nested-column" style="flex: 40%; background-color: #4a90ec; padding: 10px; font-size: 10px; border: 1px solid white; align-items: center;">
+      <img src="profile.png" alt="" style="width: 50px; height: 50px; border-radius: 50%;">
+      <p>ID level-:2424</p>
+    </div>
+    <div class="nested-column" style="flex: 60%; background-color: #4a90ec; padding: 10px; border: 1px solid white;">
+      <p>Khademul Islam</p>
+      <p>KSB:1000.00</p>
+      <p>5.00 (01)(01)</p>
+    </div>
+  </div>
+
+  <div class="column" style="flex: 10%; background-color: #1346b4; display: flex; flex-direction: column; border: 10px solid white;">
+    <div class="nested-row" style="flex: 50%; background-color: #4a90ec; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid white;">
+      <i class="fa-solid fa-plus"></i>
+      <span style="color: white; margin-top: 5px;">Add Balance</span>
+    </div>
+    <div class="nested-row" style="flex: 50%; background-color: #4a90ec; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid white;">
+      <i class="fas fa-money-bill-wave" style="font-size: 24px; color: white;"></i>
+      <span style="color: white; margin-top: 5px;">Withdraw</span>
+    </div>
+  </div>
+</div>
+  
+  
+<div class="row" style="display: flex; width: 100%;">
+  <!-- First Column -->
+  <div class="column" style="flex: 50%; background-color: #4a90ec; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: white; height: 100px;">
+      
+      <p>News Feed</p>
+      <br>
+    <p>10% upto</p>
+    <p>Todays Update</p>
+  </div>
+
+  <!-- Second Column -->
+  <div class="column" style="flex: 50%; background-color: #1346b4; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: white; height: 100px;">
+      
+      <img src="business.jpg" style="height: 100px;width: 100px;" alt="">
+  </div>
+</div>
+
+
+ <!-- Include Font Awesome -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
+<div class="container" style="display: flex; width: 100%; height: 100vh;">
+    <!-- First Column (4 Smaller Rows) -->
+    <div class="column" style="flex: 50%; display: flex; flex-direction: column; gap: 5px; padding: 10px; height: 100%;">
+        <div class="row-item" style="flex: 0.1; background-color: #4a90ec; display: flex; align-items: center; justify-content: center; color: white;">
+            <p>Row 1</p>
+        </div>
+        <div class="row-item" style="flex: 0.1; background-color: #1346b4; display: flex; align-items: center; justify-content: center; color: white;">
+            <p>Row 2</p>
+        </div>
+        <div class="row-item" style="flex: 0.1; background-color: #2a4a90; display: flex; align-items: center; justify-content: center; color: white;">
+            <p>Row 3</p>
+        </div>
+        <div class="row-item" style="flex: 0.1; background-color: #3c6fbd; display: flex; align-items: center; justify-content: center; color: white;">
+            <p>Row 4</p>
+        </div>
+    </div>
+
+    <!-- Second Column (Live Chat Section with Same Height) -->
+    <div class="column" style="flex: 50%; background-color: #f1f1f1; display: flex; flex-direction: column; border-left: 2px solid #000; padding: 10px; height: 300px;">
+        <div class="chat-header" style="background-color: #1346b4; color: white; padding: 10px; text-align: center;">
+            <p>Live Chat</p>
+        </div>
+        <div class="chat-box" style="flex: 1; background-color: white; padding: 10px; overflow-y: auto; border: 1px solid #ccc;">
+            <p><strong>Bot:</strong> Hello! How can I help you?</p>
+        </div>
+        <div class="chat-input" style="display: flex; padding: 10px; background-color: #ddd;">
+            <input type="text" id="userMessage" placeholder="Type a message..." style="flex: 1; padding: 5px;">
+            <button onclick="sendMessage()" style="padding: 5px 10px; background-color: #1346b4; color: white; border: none;">Send</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function sendMessage() {
+    let input = document.getElementById("userMessage");
+    let message = input.value.trim();
+    if (message !== "") {
+        let chatBox = document.querySelector(".chat-box");
+        let userMessage = `<p><strong>You:</strong> ${message}</p>`;
+        chatBox.innerHTML += userMessage;
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
+</script>
+
+  
+ 
+  
+
+</body>
+</html>
+
+</body>
+</html>

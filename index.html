@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Top Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .topbar {
+            background-color: #044aa5;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure navbar is on top of other content */
+        }
+
+        .topbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .title {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .notification {
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover {
+            color: #00ff00;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: block;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+        }
+
+        /* Add top margin to body to prevent content from hiding behind navbar */
+        body {
+            padding-top: 80px; /* Ensure enough space for fixed navbar */
+            background-color: black;
+        }
+
+        .profile-container {
+    display: flex;
+    flex-direction: column; /* একের পর এক দেখাবে (column) */
+    align-items: center; /* ছবি ও টেক্সটকে মাঝখানে আনবে */
+    justify-content: center; /* ভর্তিকাল সেন্টার করবে */
+    height: 150px; /* ডিভের উচ্চতা */
+    background-color: #4a90ec; /* ব্যাকগ্রাউন্ড কালার */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-content">
+            <div class="logo-section">
+                <img src="logo.png" alt="Logo" class="logo" style="border-radius: 50%;">
+                <h1 class="title">কথা সংকলন</h1>
+            </div>
+
+            <div class="notification">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <h2>Two Equal Columns</h2> -->
+
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <!-- First column -->
+        <div class="column" style="flex: 50%; background-color: #aaa; display: flex; margin: 5px; ">
+            <div class="nested-column" style="flex: 40%; background-color: #4a90ec; padding: 5px; font-size: 10px; align-items: center; text-align: center;">
+                <div class="profile-container">
+                    <img src="profile.png" alt="Profile Image" style="width: 80px; height: 80px; border-radius: 50%;">
+                    <br>
+                    <p style=" text-align: center;color: white; font-size: 25 px;">ID level 0-:2424</p>
+                </div>
+                
+             
+            </div>
+
+            <div class="nested-column" style="flex: 60%; background-color: #4a90ec; padding: 0px; color: white;display: flex;  align-items: center;
+            justify-content: center;
+            text-align: center; flex-direction: column;">
+                <p>Khademul Islam</p><br>
+                <p>KSB:1000.00</p>
+                <br>
+                <p> <i class="fa fa-star" style="color: gold;"></i> 5.00 (01)(01)</p>
+
+            </div>
+        </div>
+
+        <div class="column" style="flex: 10%; background-color: #1346b4; display: flex; flex-direction: column; margin: 5px;">
+            <div class="nested-row" style="flex: 50%; background-color: #4a90ec; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-bottom: 10px solid black;">
+                <i class="fa-solid fa-plus" style="color: white;"></i>
+                <span style="color: white; margin-top: 5px;">Add Balance</span>
+            </div>
+            <div class="nested-row" style="flex: 50%; background-color: #4a90ec; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <i class="fa-solid fa-hand-holding-dollar" style="font-size: 24px; color: white;"></i>
+                <span style="color: white; margin-top: 5px;">Withdraw</span>
+            </div>
+        </div>
+        
+
+    <div class="row" style="display: flex; width: 100%; border: 10px solid black;">
+        <!-- First Column -->
+        <div class="column" style="flex: 50%; background-color: #4a90ec; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: white; height: 100px;">
+            <p>News Feed</p>
+            <br>
+            <p>10% upto</p>
+            <p>Todays Update</p>
+        </div>
+
+        <!-- Second Column -->
+        <div class="column" style="flex: 50%; background-color: #1346b4; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: white; height: 100px;">
+            <!-- <img src="business.jpg" style="height: 100px;width: 100px;" alt=""> -->
+             <p>Add Here</p>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex; width: 100%; height: 820px;">
+        <!-- First Column (4 Smaller Rows) -->
+        <div class="column" style="flex: 50%; display: flex; flex-direction: column; gap: 5px; padding: 0px; height: 100%;">
+            <div class="row-item" style="flex: 0.1; background-color: #4a90ec; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 10px;">
+                <p>Row 1</p>
+            </div>
+            <div class="row-item" style="flex: 0.1; background-color: #1346b4; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 10px;height: 00px;">
+                <p>Row 2</p>
+            </div>
+            <div class="row-item" style="flex: 0.1; background-color: #2a4a90; display: flex; align-items: center; justify-content: center; color: white;margin-bottom: 10px;">
+                <p>Row 3</p>
+            </div>
+            <div class="row-item" style="flex: 0.1; background-color: #3c6fbd; display: flex; align-items: center; justify-content: center; color: white;margin-bottom: 10px;">
+                <p>Row 4</p>
+            </div>
+        </div>
+
+        <!-- Second Column (Live Chat Section with Same Height) -->
+        <div class="column" style="flex: 50%; background-color: #f1f1f1; display: flex; flex-direction: column; border-left: 2px solid #000; padding: 0px; height: 366px; width: 240px; margin-left: 10px;">
+            <div class="chat-header" style="background-color: #1346b4; color: white; padding: 10px; text-align: center;">
+                <p>Live Chat</p>
+            </div>
+            <div class="chat-box" style="flex: 1; background-color: white; padding: 10px; overflow-y: auto; border: 1px solid #ccc;background-color: #FAEBD7; /* AntiqueWhite */
+">
+                <p><strong>Agent:</strong> Hello! How can I help you?</p>
+            </div>
+            <div class="chat-input" style="display: flex; padding: 10px; background-color: #ddd;">
+                <input type="text" id="userMessage" placeholder="Type a message..." style="flex: 1; padding: 5px;">
+                <button onclick="sendMessage()" style="padding: 5px 10px; background-color: #1346b4; color: white; border: none;">Send</button>
+            </div>
+        </div>
+    </div>
+
+     <script>
+        // Get the elements
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Toggle the 'active' class when the menu button is clicked
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+    <script>
+    function sendMessage() {
+        let input = document.getElementById("userMessage");
+        let message = input.value.trim();
+        if (message !== "") {
+            let chatBox = document.querySelector(".chat-box");
+            let userMessage = `<p><strong>You:</strong> ${message}</p>`;
+            chatBox.innerHTML += userMessage;
+            input.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    }
+    </script>
+</body>
+</html>
